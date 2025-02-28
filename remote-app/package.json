@@ -1,0 +1,49 @@
+{
+  "name": "remote-app",
+  "packageManager": "pnpm@10.4.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpm build && pnpm serve",
+    "serve": "npx serve lib/ -p 3004",
+    "dev:app": "webpack serve --config config/app/webpack.config.js --mode development",
+    "build:lib": "pnpm build:client && pnpm build:server",
+    "build:app": "rimraf dist && webpack --config config/app/webpack.config.js --mode production",
+    "build:client": "rimraf lib/client && webpack --mode production --config config/library/webpack.client.js",
+    "build:server": "rimraf lib/server && webpack --mode production --config config/library/webpack.server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "isomorphic-style-loader": "^5.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-class-properties": "^7.25.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "@module-federation/enhanced": "^0.8.11",
+    "@module-federation/node": "^2.6.24",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/react-helmet": "^6.1.11",
+    "babel-loader": "^9.2.1",
+    "classnames": "^2.5.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "postcss-loader": "^8.1.1",
+    "rimraf": "^6.0.1",
+    "sass": "^1.85.0",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0",
+    "webpack-merge": "^6.0.1"
+  }
+}
